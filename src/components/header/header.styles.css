@@ -1,0 +1,35 @@
+.logo {
+  width: auto;
+  height: 100px;
+}
+
+.option {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.sign-out {
+  color: red;
+  cursor: pointer;
+}
+
+.option:hover {
+  text-decoration: none;
+  color: #ee75a8;
+  transition-timing-function: ease;
+}
+
+.navbar-collapse {
+  text-align: center;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav a {
+    margin-bottom: 10px;
+  }
+}

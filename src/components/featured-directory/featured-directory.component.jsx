@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
@@ -6,68 +7,34 @@ import { Container } from "react-bootstrap";
 import FlowerCard from "../featured-item/featured-item.component";
 
 import "./featured-directory.component.css";
+import { connect } from "react-redux";
+import userReducer from "../../redux/user/user.reducer";
 
 class FeaturedDirectory extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      items: [
-        {
-          title: "flower1",
-          imageUrl: "",
-          description: "test",
-          id: 1,
-        },
-        {
-          title: "flower2",
-          imageUrl: "",
-          description: "test",
-          id: 2,
-        },
-        {
-          title: "flower3",
-          imageUrl: "",
-          description: "test",
-          id: 3,
-        },
-        {
-          title: "flower4",
-          imageUrl: "",
-          description: "test",
-          id: 4,
-        },
-        {
-          title: "flower5",
-          imageUrl: "",
-          description: "test",
-          id: 5,
-        },
-        {
-          title: "flower6",
-          imageUrl: "",
-          description: "test",
-          id: 6,
-        },
-      ],
-    };
-  }
-
   render() {
+    const { shop } = this.props;
     return (
       <Container>
-        <h2 className='text-center'>Featured Items</h2>
-        <Container className='directory-menu'>
-          {this.state.items.map(({ id, ...otherItemProps }) => (
-            <FlowerCard key={id} {...otherItemProps} />
+        <div className='browse-container'>
+          <h3>Browse Designs</h3>
+          <Link className='see-more' to='/shop'>
+            see more
+          </Link>
+        </div>
+        <div className='directory-menu'>
+          {shop.map(({ id, ...otherItemProps }) => (
+            <Link to={`/shop/${id}`} key={id} className='flowercard'>
+              <FlowerCard key={id} {...otherItemProps} />
+            </Link>
           ))}
-        </Container>
-        <Link className='float-right view-more' to='/shop'>
-          view more
-        </Link>
+        </div>
       </Container>
     );
   }
 }
 
-export default FeaturedDirectory;
+const mapStateToProps = ({ item }) => ({
+  shop: item.items,
+});
+
+export default connect(mapStateToProps)(FeaturedDirectory);

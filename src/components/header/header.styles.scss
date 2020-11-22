@@ -1,0 +1,45 @@
+.header-container {
+  .header {
+    display: flex;
+    .logo-container {
+      .logo {
+      }
+    }
+
+    .options-container {
+      align-items: center;
+      display: flex;
+      margin-left: auto;
+
+      .option {
+        padding: 15px;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+          color: #f59bbf;
+        }
+      }
+
+      .sign-in-sign-out {
+        color: #d8659c;
+        cursor: pointer;
+
+        &:hover {
+          color: #f59bbf;
+        }
+      }
+    }
+
+    .cart-icon-container {
+      align-items: center;
+
+      &:hover {
+        color: #f59bbf;
+      }
+      .cart-icon {
+        padding-top: 23px;
+      }
+    }
+  }
+}

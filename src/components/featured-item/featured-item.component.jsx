@@ -1,21 +1,17 @@
 import React from "react";
 
 import { Button, Card } from "react-bootstrap";
-import "./featured-item.styles.css";
+import flower from "../../assets/img/flower.jpg";
+import "./featured-item.styles.scss";
 
 const FlowerCard = ({ title, imageUrl, description }) => (
-  <Card style={{ width: "18rem" }} className='card'>
-    <Card.Img
-      variant='top'
-      src='https://cdn.shopify.com/s/files/1/0222/9834/products/klenrl_1024x1024.jpg?v=1526705080'
-      className='card-image'
-    />
-    <Card.Body>
-      <Card.Title>{title}</Card.Title>
-      <Card.Text>{description}</Card.Text>
-      <Button variant='primary'>Add to Cart</Button>
-    </Card.Body>
-  </Card>
+  <div className='card-container'>
+    <img src={flower} alt='img-preview' />
+    <div className='info-container'>
+      <span>{title}</span>
+      <span>$10</span>
+    </div>
+  </div>
 );
 
 export default FlowerCard;

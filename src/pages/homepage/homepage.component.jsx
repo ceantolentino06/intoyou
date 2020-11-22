@@ -1,15 +1,17 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Jumbotron } from "react-bootstrap";
 import CarouselComponent from "../../components/carousel/carousel.component";
 
 import "./homepage.styles.css";
 
 import FeaturedDirectory from "../../components/featured-directory/featured-directory.component";
+import CustomDesigns from "../../components/custom-designs/custom-designs.component";
 const HomePage = () => (
-  <Container>
+  <div>
     <CarouselComponent className='carousel' />
     <FeaturedDirectory className='featured-directory' />
-  </Container>
+    <CustomDesigns />
+  </div>
 );
 
 export default HomePage;

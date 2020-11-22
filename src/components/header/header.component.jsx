@@ -1,52 +1,53 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { auth } from "../../firebase/firebase.utils";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
-import { ReactComponent as Logo } from "../../assets/logo-svg.svg";
+import { ReactComponent as Logo } from "../../assets/iylogo.svg";
 
-import "./header.styles.css";
+import "./header.styles.scss";
 
-const Header = ({ currentUser }) => (
-  <Navbar collapseOnSelect expand='lg' variant='light' className='navbar'>
-    <Navbar.Brand>
-      <Link to='/'>
-        <Logo className='logo'></Logo>
+const Header = ({ currentUser, hidden }) => (
+  <div className='header-container'>
+    <div className='header'>
+      <Link className='logo-container' to='/'>
+        <Logo className='logo' />
       </Link>
-    </Navbar.Brand>
-    <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-    <Navbar.Collapse id='responsive-navbar-nav' className='navbar-collapse'>
-      <Nav className='ml-auto'>
+      <div className='options-container'>
         <Link className='option' to='/shop'>
           SHOP
         </Link>
-
-        <Link className='option' to='/contact'>
+        <Link className='option' to='/shop'>
           CONTACT
         </Link>
-
         {currentUser ? (
           <div
-            className='sign-out option'
-            variant='danger'
+            className='option sign-in-sign-out'
             onClick={() => auth.signOut()}
           >
             SIGN OUT
           </div>
         ) : (
-          <Link className='option' to='/signin'>
+          <Link className='option sign-in-sign-out' to='/signin'>
             SIGN IN
           </Link>
         )}
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+      </div>
+      <div className='cart-icon-container'>
+        <CartIcon className='cart-icon' />
+      </div>
+      {hidden ? null : <CartDropdown />}
+    </div>
+  </div>
 );
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
 export default connect(mapStateToProps)(Header);

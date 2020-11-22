@@ -1,0 +1,22 @@
+.card-container {
+  width: 250px;
+  height: 300px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 10px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 10px 0;
+
+    span {
+      color: #77778d;
+    }
+  }
+}

@@ -1,10 +1,28 @@
 .directory-menu {
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.browse-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.see-more {
+  padding-left: 10px;
+  text-decoration: underline;
+  color: #d8659c;
+}
+
+.see-more:hover {
+  color: #f59bbf;
 }
 
 .view-more {
   margin-right: 90px;
+}
+
+.flowercard {
+  text-decoration: none;
 }

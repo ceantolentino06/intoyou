@@ -11,11 +11,22 @@
   right: 0;
   z-index: 5;
 
+  .my-cart {
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-align: center;
+    letter-spacing: 5px;
+  }
+
   .cart-items {
     height: 240px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
+  }
+
+  .cart-items::-webkit-scrollbar {
+    display: none;
   }
 
   button {
